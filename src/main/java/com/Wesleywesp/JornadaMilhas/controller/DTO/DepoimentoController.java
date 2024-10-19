@@ -28,6 +28,24 @@ public class DepoimentoController {
 
         return ResponseEntity.created(uri).body(dados);
     }
+    //filtar o controller se eu recer parametro no patha ou não ex destinos?nome=wesley;
+//    @GetMapping("destinos")
+//    @Transactional
+//    public ResponseEntity<?>todosOSDEstino(
+//            @RequestParam(required = false) String nome,  // Parâmetro opcional 'nome'
+//            @PageableDefault(size = 10, sort = {"nome"}) Pageable pagina){
+//        if(nome != null) {
+//            var destino = destinoRepository.getReferenceByNome(nome);
+//            if(destino != null) {
+//                return ResponseEntity.ok(new DetalharDestinos(destino));
+//            }
+//
+//            throw new ValidacaoException("Nenhum destino foi encontrado");
+//        }
+//        // Se o parâmetro 'nome' não for fornecido, faz a listagem paginada
+//        var page = destinoRepository.findAllByAtivoTrue(pagina).map(DetalharDestinos::new);
+//        return ResponseEntity.ok(page);
+//    }
     @GetMapping("depoimento")
     public ResponseEntity<Page<ListarDepoimentosDTO>> depimentos(@PageableDefault(size = 10, sort={"nome"}) Pageable pagina ){
         var page = depoimentoReporitory.findAllByAtivoTrue(pagina).map(ListarDepoimentosDTO::new);

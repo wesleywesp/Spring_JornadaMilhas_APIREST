@@ -8,5 +8,8 @@ public record AtualizarDestino(@NotNull
                                Long id,
                                String nome,
                                String foto,
-                               BigDecimal preco) {
+                               String foto2,
+                               BigDecimal preco,
+                               String meta,
+                               String descritivo) {
 }
